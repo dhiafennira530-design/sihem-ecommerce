@@ -1,0 +1,105 @@
+<!-- products/templates/products/product_detail.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ product.title }} - Sihem</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(to bottom, #fff8f5, #ffe7df);
+        color: #333;
+    }
+
+    .product-card {
+        max-width: 1000px;
+        margin: 30px auto;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+
+    .product-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .product-details {
+        padding: 30px;
+    }
+
+    .price {
+        font-size: 1.7rem;
+        color: #ff6f61;
+        font-weight: bold;
+    }
+
+    /* ✅ تحسينات خاصة بالتليفون */
+    @media (max-width: 768px) {
+        .product-details {
+            padding: 20px;
+            text-align: center;
+        }
+        .price {
+            font-size: 1.4rem;
+        }
+    }
+
+    footer {
+        background-color: #ff6f61;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product-card row g-0">
+
+        <!-- ✅ الصورة -->
+        <div class="col-md-6 col-12">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" class="product-image" alt="{{ product.title }}">
+            {% else %}
+                <img src="https://via.placeholder.com/500x400?text=No+Image" class="product-image" alt="No Image">
+            {% endif %}
+        </div>
+
+        <!-- ✅ التفاصيل -->
+        <div class="col-md-6 col-12 product-details">
+            <h1 class="fw-bold">{{ product.title }}</h1>
+            <p class="price">{{ product.price }} DT</p>
+            <p>{{ product.description }}</p>
+
+            <form action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">Quantité</label>
+                    <input type="number" name="quantity" value="1" min="1" class="form-control w-50 mx-auto mx-md-0">
+                </div>
+
+                <button type="submit" class="btn btn-success px-4">
+                    Ajouter au panier
+                </button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Sihem. Tous droits réservés.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
