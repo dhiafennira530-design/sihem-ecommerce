@@ -12,7 +12,6 @@
         color: #333;
     }
 
-    /* ✅ Navbar */
     .navbar {
         background-color: #ff6f61;
     }
@@ -36,7 +35,6 @@
         border-radius: 4px;
     }
 
-    /* ✅ Cards */
     .card {
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -73,7 +71,6 @@
         flex-direction: column;
     }
 
-    /* ✅ Buttons */
     .btn-primary {
         background-color: #ff6f61;
         border: none;
@@ -93,7 +90,6 @@
         transform: translateY(-2px);
     }
 
-    /* ✅ Ribbon NEW */
     .ribbon {
         width: 80px;
         height: 80px;
@@ -118,7 +114,6 @@
         box-shadow: 0 3px 10px rgba(0,0,0,0.3);
     }
 
-    /* ✅ Footer */
     footer {
         background-color: #ff6f61;
         color: #fff;
@@ -128,7 +123,6 @@
         width: 100%;
     }
 
-    /* ✅ Responsive إصلاحات */
     @media (max-width: 768px) {
         h1 {
             font-size: 28px !important;
@@ -148,7 +142,6 @@
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        
         <a class="navbar-brand" href="#">Sihem</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -162,12 +155,10 @@
                 <li class="nav-item"><a class="nav-link text-white" href="{% url 'checkout' %}">Commander</a></li>
             </ul>
         </div>
-
     </div>
 </nav>
 
 <div class="container mt-5">
-
     <h1 class="mb-4 text-center"
         style="font-size: 38px; font-weight: 800; color: #ff6f61; text-transform: uppercase;
                letter-spacing: 2px; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);">
@@ -180,6 +171,7 @@
             <div class="card h-100">
 
                 {% if product.image %}
+                    <!-- ✅ التعديل هنا -->
                     <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
                 {% else %}
                     <img src="https://via.placeholder.com/300x200?text=Pas+d'image"
