@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-j0mi^8e&0ntz4h05s#kg#pll1ppj-n91-0vjp##akd$fv6b1wv
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['sihemBO.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['sihem-ecommerce-1.onrender.com', '127.0.0.1', 'localhost']
 
 
 
