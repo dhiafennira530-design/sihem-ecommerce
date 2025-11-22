@@ -38,6 +38,12 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ['sihem-ecommerce-1.onrender.com', '127.0.0.1', 'localhost']
 
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://sihem-ecommerce-1.onrender.com',
+]
+
+
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
     'API_KEY': os.environ.get('CLOUD_API_KEY'),
